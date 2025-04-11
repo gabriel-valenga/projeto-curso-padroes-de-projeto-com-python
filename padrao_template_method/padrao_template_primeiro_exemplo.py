@@ -12,9 +12,9 @@ class Compilador(metaclass=ABCMeta):
     def compilar_objeto(self):
         pass
 
-
+    @abstractmethod
     def executar(self):
-        print('Programa executando no ambiente de execução...')        
+        pass     
 
 
     def compilar_e_executar(self): #template method
@@ -34,7 +34,7 @@ class CompiladorIos(Compilador):
 
 
     def executar(self):
-        return super().executar()
+        print('Programa IOS executando no ambiente de execução...')   
 
 
 class CompiladorAndroid(Compilador):
@@ -48,7 +48,7 @@ class CompiladorAndroid(Compilador):
 
 
     def executar(self):
-        return super().executar()
+        print('Programa Android executando no ambiente de execução...')   
         
 
 ios = CompiladorIos()
