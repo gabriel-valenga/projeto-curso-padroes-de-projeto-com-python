@@ -21,3 +21,20 @@ class Novo(RequestHandler):
         produto = Produto(nome=nome, preco=preco)
         produto.salvar()
         self.redirect('/')
+
+
+class Atualiza(RequestHandler):
+
+    def get(self, id, status):
+        produto = Produto.get_produto(id)
+        produto.status = status
+        produto.atualizar()
+        self.redirect('/')
+
+
+class Deleta(RequestHandler):
+
+    def get(self, id):
+        produto = Produto.get_produto(id)
+        produto.deletar()
+        self.redirect('/')
