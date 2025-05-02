@@ -34,7 +34,10 @@ class Atualiza(RequestHandler):
 
 class Deleta(RequestHandler):
 
-    def get(self, id):
+    def delete(self, id):
         produto = Produto.get_produto(id)
-        produto.deletar()
-        self.redirect('/')
+        if produto:
+            produto.deletar()
+            self.redirect('/')
+  
+        
